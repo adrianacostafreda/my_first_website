@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import { EnvelopeIcon, StarIcon, UsersIcon } from "@heroicons/react/24/solid";
+import { EnvelopeIcon, StarIcon, UsersIcon,CodeBracketIcon } from "@heroicons/react/24/solid";
 import { TopAreaProps, UserProps } from "../../types";
 import Profile from "@/assets/avatar.png";
 
@@ -39,7 +39,9 @@ const Overview = ({ setUser }: Props) => {
 
             const user: UserProps = {
                 name: data.name,
-                description: data.description
+                description: data.description,
+                language: data.language,
+                stars:data.stargazers_count
             };
 
             setUserState(user);
@@ -60,7 +62,7 @@ const Overview = ({ setUser }: Props) => {
                             <p className="mt-1 text-gray-400 text-xl">adrianacostafreda</p>
                         </div>
                         <p className="mt-8 text-xl">
-                            A repository contains all of your code, your files, and each file's revision history. You can discuss and manage your work within the repository.
+                        Biomedical Engineer with a passion for data computing and software
                         </p>
                     </div>
 
@@ -116,17 +118,36 @@ const Overview = ({ setUser }: Props) => {
                         </button>
                     </form>
                     <div className="mt-10 text-xl">
-                        <p>These are the directories</p>
+                        
                     </div>
                     <div className="mt-20 text-xl">
                         {user && (
                             <>
-                                <p>Name Repository: {user.name}</p>
-                                <p>Description Repository: {user.description}</p>
+                                <p className="text-3xl">{user.name}</p>
+                                <p className="mt-4">{user.description}</p>
                             </>
                         )}
+                    <div className="text-xl flex">
+                        {user && (
+                        <>
+                            <CodeBracketIcon className="mt-8 w-6 h-6 me-2 text-xl" aria-hidden="true" fill="currentColor"></CodeBracketIcon>
+                            <p className="mt-8">{user.language}</p>
+                        </>
+                        )}
                     </div>
-                    
+                    <div className="text-xl flex md:justify-end">
+                        {user && (
+                            <button type="button" className="text-white bg-[#3b5998] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-md px-10 py-2.5 inline-flex items-center dark:focus:ring-[#3b5998]/55 me-2 mb-2">
+                            <StarIcon className="w-6 h-6 me-2" aria-hidden="true" fill="currentColor"/>
+                            {user.stars}
+                            </button>
+                        )}
+                    </div>
+                    </div>
+                    <div>
+                        <hr className="h-px my-8 bg-black border-0 dark:bg-gray-700"></hr>
+                    </div>
+
                 </div>
             </div>
         </section>

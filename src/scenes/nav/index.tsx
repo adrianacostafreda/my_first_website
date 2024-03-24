@@ -55,7 +55,7 @@ const Nav = ({ isTopOfPage, selectedPage, setSelectedPage}: Props) => {
                         <div className = {`${flexBetween} text-3xl gap-8`}>
                             <p>Sign In</p>
                             <ActionButton setSelectedPage={setSelectedPage}> 
-                            Repositories 
+                            Sign Up
                             </ActionButton>
                         </div>
                     </div>

@@ -2,10 +2,18 @@ import Nav from "@/scenes/nav"
 import Overview from "@/scenes/overview"
 import { useEffect, useState } from "react";
 import { SelectedPage } from "@/shared/types"
+import { UserProps } from "./types";
+
 
 function App() {
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(SelectedPage.Overview);
   const [isTopOfPage, setIsTopOfPage] = useState<boolean>(true);
+  
+  const [user, setUser] = useState<UserProps | null>(null)
+
+  function setUserData (user: UserProps | null): void {
+    setUser(user)
+  }
   
   useEffect(() => {
     const handleScroll = () =>{
@@ -25,11 +33,13 @@ function App() {
       isTopOfPage={isTopOfPage}
       selectedPage = {selectedPage} setSelectedPage = {setSelectedPage} 
     />
-    <Overview setSelectedPage={setSelectedPage}
-
+    <Overview
+      setUser={setUserData}
     />
+
   </div>
   );
 }
+
 
 export default App;

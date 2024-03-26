@@ -1,4 +1,4 @@
-import {useState, useRef } from "react";
+import { useState, useRef } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { EnvelopeIcon, StarIcon, UsersIcon,CodeBracketIcon } from "@heroicons/react/24/solid";
 import {UserProps } from "../../types";

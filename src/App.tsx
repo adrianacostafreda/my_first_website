@@ -9,7 +9,7 @@ function App() {
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(SelectedPage.Repositories);
   const [isTopOfPage, setIsTopOfPage] = useState<boolean>(true);
   
-  const [user, setUser] = useState<UserProps | null>(null)
+  const [user, setUser] = useState<UserProps | null>(null);
 
   function setUserData (user: UserProps | null): void {
     setUser(user)

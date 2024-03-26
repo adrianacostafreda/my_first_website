@@ -6,7 +6,7 @@ import { UserProps } from "./types";
 
 
 function App() {
-  const [selectedPage, setSelectedPage] = useState<SelectedPage>(SelectedPage.Overview);
+  const [selectedPage, setSelectedPage] = useState<SelectedPage>(SelectedPage.Repositories);
   const [isTopOfPage, setIsTopOfPage] = useState<boolean>(true);
   
   const [user, setUser] = useState<UserProps | null>(null)
@@ -20,7 +20,7 @@ function App() {
       if (window.scrollY === 0) {
         /*If we are not at top of the page*/
         setIsTopOfPage(true);
-        setSelectedPage(SelectedPage.Overview)
+        setSelectedPage(SelectedPage.Repositories)
       }
       if (window.scrollY !== 0) setIsTopOfPage(false);
     }
@@ -28,7 +28,7 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return (<div className="app bg-gray-20">
+  return (<div className="app">
     <Nav 
       isTopOfPage={isTopOfPage}
       selectedPage = {selectedPage} setSelectedPage = {setSelectedPage} 
@@ -40,6 +40,5 @@ function App() {
   </div>
   );
 }
-
 
 export default App;

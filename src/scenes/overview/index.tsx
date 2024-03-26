@@ -1,7 +1,7 @@
-import { useEffect, useState, useRef } from "react";
+import {useState, useRef } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { EnvelopeIcon, StarIcon, UsersIcon,CodeBracketIcon } from "@heroicons/react/24/solid";
-import { TopAreaProps, UserProps } from "../../types";
+import {UserProps } from "../../types";
 import Profile from "@/assets/avatar.png";
 
 type Props = {
@@ -52,9 +52,9 @@ const Overview = ({ setUser }: Props) => {
     }
 
     return (
-        <section id="overview" className=" gap-16 bg-gray-20 py-10 md:h-full md:pb-0">
+        <section id="overview" className=" gap-16 bg-white py-10 md:h-full md:pb-0">
             <div className="md:flex mx-auto w-5/6 md:h-5/6">
-                <div className="z-10 mt-32 md:basis-3/5">
+                <div className="z-10 mt-32 md:basis-1/4 md:mr-8">
                     <div className="md:-mt-10">
                         <div className="relative">
                         <img className="rounded-full border-8 border-black" alt="logo" height={350} width={300} src={Profile} />
@@ -98,7 +98,7 @@ const Overview = ({ setUser }: Props) => {
                     </div>
                 </div>
 
-                <div className="md:object-top inset-y-10 rounded-xl bg-card shadow-md w-full sm:w-10/12 lg:w-8/12 xl:w-6/12 h-24 flex-col items-start justify-between px-4 sm:px-8 transition-all duration-300 relative">
+                <div className="md:object-top inset-y-10 rounded-xl bg-card shadow-md w-full sm:w-3/5 lg:w-8/12 xl:w-6/12 h-24 flex-col items-start justify-between px-4 sm:px-8 transition-all duration-300 relative">
                     <form onSubmit={handleSubmit} className="mt-10 w-full flex justify-between items-center px-4">
                         <label className="hidden">
                             <img src="/assets/icon-search.svg" alt="search .." />
@@ -111,7 +111,7 @@ const Overview = ({ setUser }: Props) => {
                             placeholder="Search repository ..."
                             className="pl-12 pr-4 py-2 rounded-lg bg-gray-100 focus:outline-none focus:ring focus:border-blue-300"
                         />
-                        {empty && <div className="text-red-500">Enter User</div>}
+                        {empty && <div className="text-red-500 text-xl">Enter Repository Name</div>}
                         {notFound && <div className="text-red-500">Not Found</div>}
                         <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
                             Search
@@ -143,13 +143,29 @@ const Overview = ({ setUser }: Props) => {
                             </button>
                         )}
                     </div>
-                    </div>
                     <div>
                         <hr className="h-px my-8 bg-black border-0 dark:bg-gray-700"></hr>
                     </div>
-
+                    </div>
+                
                 </div>
-            </div>
+                
+                
+                <div className="md:object-top inset-y-10 mt-10 rounded-xl bg-card sm:w-8 lg:w-8/12 xl:w-6/12 h-24 flex-col space-x-10 items-start justify-between px-4 sm:px-0 relative">
+                    
+                    {/* Gap */}
+                    <div className="flex space-x-10" />
+                    {user && (
+                        <>
+                        <button className=" px-8 py-2 bg-card bg-white text-black rounded-lg">
+                            <p className="flex text-xl"> Type:<p className="font-bold">{user.language}</p> </p>
+                        </button>
+                        </>
+                        )}
+
+                </div>  
+                </div>
+            
         </section>
     );
 };

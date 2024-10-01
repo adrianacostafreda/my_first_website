@@ -1,4 +1,4 @@
-# Vite-project
+# My first website
 
 This project implements a website which allows to type the name of the repository of a user and search for the repository displaying its description and the code language which was used to build it. 
 
